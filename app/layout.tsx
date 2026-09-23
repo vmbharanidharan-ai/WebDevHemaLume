@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Newsreader } from "next/font/google";
+import { Manrope, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -9,11 +9,11 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"]
 });
 
-const newsreader = Newsreader({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-newsreader",
-  weight: ["400", "500", "600"]
+  variable: "--font-instrument",
+  weight: ["400"]
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${instrumentSerif.variable}`}>
       <body>{children}</body>
     </html>
   );
