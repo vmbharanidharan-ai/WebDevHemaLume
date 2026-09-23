@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Reveal from "../components/Reveal";
 import MicroscopyField from "../components/MicroscopyField";
+import HeroMicroscopy from "../components/HeroMicroscopy";
 import DeviceMockup from "../components/DeviceMockup";
 
 const steps = [
-  ["01", "Collect", "Fingerstick sample prepared as a standardized smear."],
-  ["02", "Check", "On-device quality control evaluates the captured field."],
-  ["03", "Triage", "Local analysis flags cellular patterns that may need urgent review."],
-  ["04", "Connect", "Flagged cases can sync for specialist review when connectivity is available."]
-];
+  ["01", "Collect", "Fingerstick sample prepared as a standardized smear.", "collect"],
+  ["02", "Check", "On-device quality control evaluates the captured field.", "check"],
+  ["03", "Triage", "Local analysis flags cellular patterns that may need urgent review.", "triage"],
+  ["04", "Connect", "Flagged cases can sync for specialist review when connectivity is available.", "connect"]
+] as const;
 
 const capabilities = [
   ["01", "Universal", "Designed to work across common smartphone models."],
@@ -112,17 +113,11 @@ export default function Home() {
             </a>
           </Reveal>
         </div>
-        <div className="hero-microscopy">
-          <MicroscopyField variant="hero" />
-          <span className="hero-note">
-            Small details.
-            <br />
-            <b>Bigger impact.</b>
-          </span>
-        </div>
+        <HeroMicroscopy />
         <div className="scroll-cue">
+          <i />
           <span />
-          Scroll to explore
+          Scroll to learn more
         </div>
       </section>
 
@@ -247,22 +242,15 @@ export default function Home() {
           </Reveal>
         </div>
         <div className="steps">
-          {steps.map(([num, title, text], i) => (
+          {steps.map(([num, title, text, visual], i) => (
             <Reveal key={num} delay={i * 80} className="step-card">
               <div className="step-visual">
-                {i < 3 ? (
-                  <MicroscopyField variant={i === 1 ? "quality" : i === 2 ? "soft" : "hero"} />
-                ) : (
-                  <div className="offline-orb" aria-hidden="true">
-                    <svg viewBox="0 0 48 48">
-                      <path d="M14 24h20M24 14v20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      <circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" strokeWidth="1.5" opacity=".35" />
-                    </svg>
-                  </div>
-                )}
+                <MicroscopyField variant={visual} />
+                {i < steps.length - 1 && <span className="step-arrow" aria-hidden="true">→</span>}
               </div>
-              <div className="step-number">{num}</div>
-              <h3>{title}</h3>
+              <div className="step-number">
+                <em>{num}</em> {title}
+              </div>
               <p>{text}</p>
             </Reveal>
           ))}
