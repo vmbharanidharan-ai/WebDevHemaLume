@@ -7,6 +7,3 @@ out/
 .env*
 !.env.example
 
-# Local agent helper files
-AGENTS.md
-CLAUDE.md
