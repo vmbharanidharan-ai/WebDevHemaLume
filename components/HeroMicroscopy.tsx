@@ -2,47 +2,40 @@ import Image from "next/image";
 
 export default function HeroMicroscopy() {
   return (
-    <div className="hero-scope" aria-label="Optical microscopy field of a stained blood smear">
-      <div className="hero-scope-field" aria-hidden="true">
-        <Image
-          src="/hero-microscopy-field.png"
-          alt=""
-          fill
-          sizes="(max-width: 768px) 92vw, 54vw"
-          className="hero-scope-field-img"
-          priority
-        />
-      </div>
+    <>
+      <div
+        className="hero-microscopy-bg"
+        aria-hidden="true"
+        style={{ backgroundImage: "url(/hero-microscopy-field.png)" }}
+      />
 
-      <div className="hero-scope-lens">
-        <div className="hero-scope-lens-clip">
+      <div className="microscope-frame" aria-label="Optical microscopy field of a stained blood smear">
+        <div className="microscope-image">
           <Image
             src="/hero-microscopy-lens.png"
             alt="High-detail stained blood-smear microscopy"
             width={1600}
             height={1600}
             quality={95}
-            className="hero-scope-lens-img"
+            className="microscope-image-img"
             priority
           />
-          <div className="hero-scope-inner-ring" aria-hidden="true" />
         </div>
-        <div className="hero-scope-reticle" aria-hidden="true">
-          <span className="ring ring-outer" />
-          <span className="ring ring-inner" />
+        <div className="microscope-crosshairs" aria-hidden="true">
           <span className="tick tick-n" />
           <span className="tick tick-e" />
           <span className="tick tick-s" />
           <span className="tick tick-w" />
+          <span className="cross-h" />
+          <span className="cross-v" />
         </div>
-        <div className="hero-scope-glass" aria-hidden="true" />
       </div>
 
-      <p className="hero-note">
+      <p className="hero-annotation">
         Small details.
         <br />
-        <b>Bigger impact.</b>
+        Bigger impact.
       </p>
-    </div>
+    </>
   );
 }

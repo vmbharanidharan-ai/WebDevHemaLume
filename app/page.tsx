@@ -95,26 +95,23 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-wash" />
         <div className="hero-copy">
-          <Reveal>
-            <p className="eyebrow">Point-of-care hematology triage</p>
-            <h1>
-              From a drop
-              <br />
-              to a decision.
-            </h1>
-            <p className="hero-sub">
-              HemaLume is an offline blood-smear triage system designed for frontline clinics where specialist
-              hematology may be out of reach.
-            </p>
-            <a className="primary-button" href="#technology">
-              Explore HemaLume <span>→</span>
-            </a>
-          </Reveal>
+          <p className="hero-eyebrow">Point-of-care hematology triage</p>
+          <h1 className="hero-title">
+            From a drop
+            <br />
+            to a decision.
+          </h1>
+          <p className="hero-description">
+            HemaLume is an offline blood-smear triage system designed for frontline clinics where specialist hematology
+            may be out of reach.
+          </p>
+          <a className="hero-cta" href="#technology">
+            Explore HemaLume <span>→</span>
+          </a>
         </div>
         <HeroMicroscopy />
-        <div className="scroll-cue">
+        <div className="hero-scroll">
           <i />
           <span />
           Scroll to learn more
