@@ -1,18 +1,19 @@
 :root {
-  --cream: #f5f2ec;
+  --cream: #f7f4ee;
   --paper: #f8f5ef;
-  --ink: #17191a;
-  --muted: #455056;
-  --line: #d5d0c8;
-  --red: #791d3e;
-  --red-soft: #7a1f3e;
-  --green: #6d857b;
-  --deep: #101613;
-  --blush: #ebcdd0;
-  --mauve: #9d507a;
-  --sage: #a9b5a8;
-  --sans: var(--font-inter), Inter, "Helvetica Neue", "Neue Haas Grotesk", Arial, sans-serif;
+  --ink: #171918;
+  --muted: #4a5450;
+  --line: #d8d2c8;
+  --red: #8a2940;
+  --red-soft: #9a3550;
+  --green: #8d9e92;
+  --deep: #151918;
+  --blush: #d9a8ae;
+  --mauve: #b36b7a;
+  --sage: #8d9e92;
+  --sans: var(--font-manrope), Manrope, "Helvetica Neue", Arial, sans-serif;
   --display: var(--sans);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -29,7 +30,9 @@ body {
   color: var(--ink);
   font-family: var(--sans);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -41,8 +44,9 @@ a {
 
 button,
 a {
-  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: color 0.28s var(--ease-out), background 0.28s var(--ease-out),
+    border-color 0.28s var(--ease-out), transform 0.28s var(--ease-out),
+    box-shadow 0.28s var(--ease-out);
 }
 
 ::selection {
@@ -56,19 +60,19 @@ img {
   display: block;
 }
 
-/* ========== HERO GEOMETRY LOCK (v5 desktop 1440) ========== */
+/* ========== HEADER + HERO (v6 refine) ========== */
 .site-header {
   position: relative;
-  z-index: 10;
-  height: 64px;
-  padding: 0 64px;
+  z-index: 20;
+  height: 72px;
+  padding: 0 68px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  background: #f5f2ec;
+  background: var(--cream);
   box-sizing: border-box;
 }
 
@@ -76,139 +80,158 @@ img {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   justify-self: start;
+  color: var(--ink);
+}
+
+.brand .hemalume-mark,
+.footer-brand .hemalume-mark {
+  color: var(--red);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.brand-word {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 22px;
+  font-size: 23px;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #141617;
+  color: var(--ink);
 }
 
-.brand-mark {
-  position: relative;
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  border: 1.5px solid #791d3e;
-  border-radius: 50%;
-  flex-shrink: 0;
+.brand {
+  width: max-content;
+  max-width: 165px;
 }
-
-.brand-mark span {
-  position: absolute;
-  width: 4.5px;
-  height: 4.5px;
-  border: 1.4px solid #791d3e;
-  border-radius: 50%;
-}
-
-.brand-mark span:nth-child(1) { top: 1px; left: 7px; }
-.brand-mark span:nth-child(2) { right: 1px; top: 7px; }
-.brand-mark span:nth-child(3) { bottom: 1px; left: 7px; }
-.brand-mark span:nth-child(4) { left: 1px; top: 7px; }
 
 .desktop-nav {
-  position: static;
-  left: auto;
-  transform: none;
   display: flex;
-  gap: 40px;
+  gap: 38px;
   margin: 0;
   justify-self: center;
-  font-size: 12px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: #344047;
+  color: #3a4340;
 }
 
-.desktop-nav a:hover { color: #791d3e; }
+.desktop-nav a:hover {
+  color: var(--red);
+}
 
 .outline-button {
-  border: 1px solid #2a3032;
+  border: 1px solid #2a3030;
   border-radius: 999px;
-  padding: 0;
-  width: 76px;
-  height: 32px;
+  padding: 0 18px;
+  min-width: 96px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  gap: 8px;
+  font-size: 13px;
   font-weight: 500;
   background: transparent;
-  color: #141617;
+  color: var(--ink);
 }
 
 .outline-button:hover {
-  background: #141617;
-  color: white;
-  border-color: #141617;
+  background: var(--deep);
+  color: #fff;
+  border-color: var(--deep);
 }
 
 .header-button {
   justify-self: end;
   margin-left: 0;
-  min-width: 76px;
 }
 
-.mobile-menu { display: none; }
+.mobile-menu {
+  display: none;
+}
 
 .hero {
   position: relative;
-  height: 740px;
+  height: 780px;
   overflow: hidden;
-  background: #f5f2ec;
-  max-width: 1440px;
+  background: var(--cream);
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  padding: 0;
-  display: block;
+  padding: 0 68px;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .hero-microscopy-bg {
   position: absolute;
-  inset: 0 0 0 560px;
+  inset: 0 0 0 44%;
   z-index: 1;
-  opacity: 0.6;
+  opacity: 0.55;
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: saturate(0.78) contrast(0.92);
+  filter: saturate(0.82) contrast(0.94) blur(0.2px);
   mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.18) 16%,
-    rgba(0, 0, 0, 0.9) 43%,
+    rgba(0, 0, 0, 0.12) 14%,
+    rgba(0, 0, 0, 0.85) 40%,
     #000 100%
   );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.18) 16%,
-    rgba(0, 0, 0, 0.9) 43%,
+    rgba(0, 0, 0, 0.12) 14%,
+    rgba(0, 0, 0, 0.85) 40%,
     #000 100%
   );
+  pointer-events: none;
+  animation: field-drift 40s ease-in-out infinite alternate;
+}
+
+.hero-microscopy-bg::after {
+  content: "";
+  position: absolute;
+  inset: 8% 8% 18% 18%;
+  background: radial-gradient(circle at 62% 42%, rgba(138, 41, 64, 0.14), transparent 58%);
   pointer-events: none;
 }
 
 .microscope-frame {
   position: absolute;
   z-index: 3;
-  top: 94px;
-  right: 112px;
-  width: 365px;
-  height: 365px;
+  top: 50%;
+  right: 88px;
+  transform: translateY(-54%);
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(138, 41, 64, 0.08), 0 18px 48px rgba(80, 30, 45, 0.06);
 }
 
 .microscope-frame::before {
   position: absolute;
   content: "";
-  inset: -12px;
-  border: 1px solid rgba(111, 46, 70, 0.35);
+  inset: -14px;
+  border: 1px solid rgba(138, 41, 64, 0.32);
   border-radius: 50%;
   pointer-events: none;
+}
+
+.microscope-frame::after {
+  position: absolute;
+  content: "";
+  inset: -2px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 28px rgba(247, 244, 238, 0.18);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .microscope-image {
@@ -226,24 +249,26 @@ img {
   object-fit: cover;
   object-position: 52% 48%;
   display: block;
+  transform: scale(1.02);
+  animation: field-drift 45s ease-in-out infinite alternate;
 }
 
 .microscope-crosshairs {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 
 .microscope-crosshairs .tick {
   position: absolute;
-  background: rgba(140, 110, 115, 0.45);
+  background: rgba(141, 110, 118, 0.5);
 }
 
 .microscope-crosshairs .tick-n,
 .microscope-crosshairs .tick-s {
   width: 1px;
-  height: 18px;
+  height: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -254,7 +279,7 @@ img {
 .microscope-crosshairs .tick-e,
 .microscope-crosshairs .tick-w {
   height: 1px;
-  width: 18px;
+  width: 16px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -265,97 +290,108 @@ img {
 .microscope-crosshairs .cross-h,
 .microscope-crosshairs .cross-v {
   position: absolute;
-  background: rgba(111, 46, 70, 0.22);
+  background: rgba(138, 41, 64, 0.2);
   left: 50%;
   top: 50%;
 }
 
 .microscope-crosshairs .cross-h {
-  width: 28%;
+  width: 24%;
   height: 1px;
   transform: translate(-50%, -50%);
 }
 
 .microscope-crosshairs .cross-v {
   width: 1px;
-  height: 28%;
+  height: 24%;
   transform: translate(-50%, -50%);
 }
 
 .hero-copy {
-  position: absolute;
+  position: relative;
   z-index: 5;
-  top: 136px;
-  left: 64px;
-  width: 540px;
+  width: 100%;
+  max-width: 520px;
+  padding: 24px 0 48px;
+  grid-column: 1;
 }
 
 .hero-eyebrow {
-  margin: 0 0 18px;
-  color: #7e2743;
-  font-size: 10px;
+  margin: 0 0 22px;
+  color: var(--red);
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   line-height: 1.2;
   text-transform: uppercase;
   font-family: var(--sans);
 }
 
 .hero-title {
-  max-width: 540px;
+  max-width: 520px;
   margin: 0;
-  color: #141617;
+  color: var(--ink);
   font-family: var(--sans);
-  font-size: 66px;
+  font-size: 72px;
   font-weight: 400;
-  letter-spacing: -0.07em;
-  line-height: 0.95;
+  letter-spacing: -0.055em;
+  line-height: 1.0;
 }
 
 .hero-description {
-  width: 350px;
-  margin: 28px 0 0;
-  color: #3d474c;
-  font-size: 14px;
-  line-height: 1.45;
+  max-width: 430px;
+  width: 100%;
+  margin: 30px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
   font-family: var(--sans);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
 }
 
 .hero-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 150px;
-  height: 40px;
-  margin-top: 20px;
+  gap: 10px;
+  width: auto;
+  height: 46px;
+  margin-top: 32px;
+  padding: 0 22px;
   border: 0;
   border-radius: 999px;
-  background: #791d3e;
-  color: #fff9f3;
-  font: 500 11px/1 var(--sans);
+  background: var(--red);
+  color: #ffffff;
+  font: 500 13px/1 var(--sans);
   letter-spacing: -0.01em;
-  box-shadow: 0 6px 14px rgba(121, 29, 62, 0.12);
+  box-shadow: 0 8px 18px rgba(138, 41, 64, 0.12);
   text-decoration: none;
   white-space: nowrap;
 }
 
-.hero-cta span { font-size: 13px; font-weight: 400; }
+.hero-cta span {
+  font-size: 14px;
+  font-weight: 400;
+  transition: transform 0.28s var(--ease-out);
+}
 
 .hero-cta:hover {
   transform: translateY(-1px);
-  background: #8a2348;
+  background: #9a3550;
+}
+
+.hero-cta:hover span {
+  transform: translateX(2px);
 }
 
 .hero-annotation {
   position: absolute;
   z-index: 5;
-  right: 66px;
-  bottom: 118px;
+  right: 72px;
+  bottom: 108px;
   margin: 0;
-  color: #283034;
-  font-size: 9px;
+  color: #2a3230;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.15em;
   line-height: 1.45;
@@ -367,52 +403,55 @@ img {
 .hero-scroll {
   position: absolute;
   z-index: 5;
-  left: 64px;
-  bottom: 38px;
+  left: 68px;
+  bottom: 36px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.04em;
-  color: #9aa0a2;
+  color: #9aa29e;
 }
 
 .hero-scroll i {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #791d3e;
+  background: var(--red);
   display: block;
   flex-shrink: 0;
 }
 
 .hero-scroll span {
   width: 1px;
-  height: 25px;
-  background: rgba(121, 29, 62, 0.5);
+  height: 28px;
+  background: rgba(138, 41, 64, 0.45);
 }
 
-/* keep aliases for any leftover utility classes */
-.eyebrow { color: #7e2743; }
+.eyebrow { color: var(--red); }
+
 .primary-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 40px;
-  padding: 0 18px;
+  height: 46px;
+  padding: 0 22px;
   border-radius: 999px;
-  background: #791d3e;
-  color: #fff9f3;
-  font: 500 11px/1 var(--sans);
+  background: var(--red);
+  color: #fff;
+  font: 500 13px/1 var(--sans);
 }
+
 .scroll-cue { display: none; }
 .hero-wash,
 .hero-scope,
 .hero-microscopy,
 .hero-note,
 .hero-sub { display: none !important; }
+
+.brand-mark { display: none; }
 
 /* Microscopy */
 .micro-field {
@@ -543,16 +582,16 @@ img {
 /* Sections */
 .section {
   position: relative;
-  padding: 110px 64px;
+  padding: 100px 68px;
   background: var(--paper);
   overflow: hidden;
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .section.problem {
   padding-top: 56px;
-  background: #f5f2ec;
+  background: var(--cream);
 }
 
 .section-index {
@@ -570,7 +609,7 @@ img {
 }
 
 .problem {
-  background: #f4f2eb;
+  background: var(--cream);
 }
 
 .problem-grid {
@@ -588,18 +627,19 @@ img {
   font-family: var(--sans);
   font-weight: 400;
   font-size: clamp(2rem, 3.1vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.055em;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   margin: 0 0 24px;
-  color: #16191a;
+  color: var(--ink);
   font-style: normal;
 }
 
 .problem h2 {
   font-size: 50px;
   line-height: 1.02;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.05em;
   max-width: 620px;
+  font-weight: 400;
 }
 
 .body-copy,
@@ -607,10 +647,10 @@ img {
 .solution p,
 .device-section p,
 .impact-copy p {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.55;
   color: var(--muted);
-  max-width: 490px;
+  max-width: 460px;
 }
 
 .text-link {
@@ -1552,7 +1592,7 @@ img {
   line-height: 1.02;
   letter-spacing: -0.055em;
   margin: 0 0 17px;
-  color: #16191a;
+  color: var(--ink);
 }
 
 .impact-copy h3 {
@@ -1653,7 +1693,7 @@ img {
   display: grid;
   place-items: center;
   color: #8e958f;
-  font: italic 14px Inter, "Helvetica Neue", Arial, sans-serif;
+  font: italic 14px var(--sans);
 }
 
 .difference-line {
@@ -1797,8 +1837,8 @@ img {
 /* Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.75, 0.2, 1);
+  transform: translateY(20px);
+  transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
   transition-delay: var(--delay);
 }
 
@@ -1807,21 +1847,28 @@ img {
   transform: none;
 }
 
-/* Breakpoints — only after desktop lock */
+
+/* Breakpoints — refine responsive after desktop */
 @media (max-width: 1280px) {
+  .site-header,
+  .hero { padding-left: 48px; padding-right: 48px; }
+  .hero { height: 740px; }
+  .microscope-frame {
+    width: 380px;
+    height: 380px;
+    right: 56px;
+  }
+  .hero-title { font-size: 64px; }
   .solution-grid,
   .device-section-grid {
     grid-template-columns: 1fr 1.2fr;
   }
-
   .capability-list,
   .device-capabilities {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 18px;
   }
-
   .steps { gap: 16px; }
   .step-visual { width: 150px; height: 150px; }
   .step-arrow { right: -18px; }
@@ -1831,11 +1878,17 @@ img {
 
 @media (max-width: 900px) {
   .site-header {
-    padding: 0 32px;
+    padding: 0 28px;
+    height: 64px;
     grid-template-columns: 1fr auto;
   }
 
+  .brand .hemalume-mark { width: 24px; height: 24px; }
+  .brand-word { font-size: 20px; }
+  .brand { max-width: 135px; }
+
   .desktop-nav { display: none; }
+  .header-button { display: none; }
 
   .mobile-menu {
     display: block;
@@ -1846,8 +1899,8 @@ img {
   .mobile-menu summary {
     list-style: none;
     cursor: pointer;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     display: grid;
     place-content: center;
     gap: 5px;
@@ -1859,97 +1912,131 @@ img {
     display: block;
     width: 20px;
     height: 1.5px;
-    background: #141617;
+    background: var(--ink);
+    transition: transform 0.25s var(--ease-out), opacity 0.25s;
+  }
+
+  .mobile-menu[open] summary span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .mobile-menu[open] summary span:nth-child(2) { opacity: 0; }
+  .mobile-menu[open] summary span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
   }
 
   .mobile-menu-panel {
     position: absolute;
     right: 0;
-    top: 40px;
-    background: rgba(245, 242, 236, 0.98);
+    top: 48px;
+    background: rgba(247, 244, 238, 0.98);
     border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 12px;
+    border-radius: 14px;
+    padding: 10px;
     display: grid;
-    min-width: 180px;
-    box-shadow: 0 12px 28px rgba(30, 40, 35, 0.1);
+    min-width: 200px;
+    box-shadow: 0 16px 36px rgba(30, 40, 35, 0.08);
+    animation: menu-slide 0.35s var(--ease-out);
   }
 
-  .mobile-menu-panel a { padding: 10px; font-size: 12px; }
+  .mobile-menu-panel a {
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
 
-  .header-button { display: none; }
+  .mobile-menu-panel a:hover {
+    background: rgba(138, 41, 64, 0.06);
+    color: var(--red);
+  }
+
+  @keyframes menu-slide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: none; }
+  }
 
   .hero {
     height: auto;
     min-height: 0;
-    padding: 0 32px 48px;
+    padding: 8px 28px 56px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    grid-template-columns: none;
   }
 
   .hero-microscopy-bg {
     inset: auto 0 0 0;
-    height: 280px;
+    height: 300px;
     top: auto;
     bottom: 0;
-    opacity: 0.45;
+    opacity: 0.4;
     z-index: 0;
+    animation: none;
   }
 
   .hero-copy {
     position: relative;
     z-index: 5;
-    top: auto;
-    left: auto;
-    width: 100%;
-    max-width: 540px;
-    padding-top: 36px;
+    max-width: 100%;
+    padding: 28px 0 0;
   }
 
   .hero-title {
-    font-size: clamp(42px, 9vw, 54px);
+    font-size: clamp(48px, 12vw, 56px);
+    line-height: 1.0;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    max-width: 330px;
+    margin-top: 24px;
+  }
+
+  .hero-cta {
+    margin-top: 28px;
+    height: 46px;
   }
 
   .microscope-frame {
     position: relative;
-    z-index: 3;
     top: auto;
     right: auto;
-    width: clamp(240px, 62vw, 300px);
-    height: clamp(240px, 62vw, 300px);
-    margin: 36px auto 0;
+    transform: none;
+    width: clamp(240px, 68vw, 280px);
+    height: clamp(240px, 68vw, 280px);
+    margin: 40px auto 0;
+    z-index: 3;
   }
+
+  .microscope-image-img { animation: none; }
 
   .hero-annotation {
     position: relative;
-    z-index: 5;
     right: auto;
     bottom: auto;
-    margin: 16px auto 0;
+    margin: 18px auto 0;
     text-align: center;
   }
 
   .hero-scroll {
-    position: relative;
-    z-index: 5;
-    left: auto;
-    bottom: auto;
-    margin-top: 24px;
+    display: none;
   }
 
-  .section { padding: 72px 32px; }
+  .section { padding: 72px 28px; }
   .section.problem { padding-top: 48px; }
   .problem h2 { font-size: clamp(32px, 7vw, 42px); }
 }
 
 @media (max-width: 640px) {
   .site-header { padding: 0 24px; height: 60px; }
-  .hero { padding: 0 24px 40px; }
-  .hero-title { font-size: 45px; }
-  .hero-description { width: 100%; max-width: 350px; }
+  .hero { padding: 0 24px 48px; }
+  .hero-title { font-size: 48px; }
+  .hero-description { max-width: 320px; }
   .microscope-frame {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
   }
   .section { padding: 64px 24px; }
   .problem-grid,
@@ -1965,3 +2052,20 @@ img {
   .offline-visual { height: 480px; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .hero-microscopy-bg,
+  .microscope-image-img {
+    animation: none !important;
+  }
+}
