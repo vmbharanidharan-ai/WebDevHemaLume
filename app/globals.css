@@ -80,17 +80,18 @@ img {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
   justify-self: start;
   color: var(--ink);
+  width: max-content;
 }
 
 .brand .hemalume-mark,
 .footer-brand .hemalume-mark {
-  color: var(--red);
   flex-shrink: 0;
   width: 28px;
   height: 28px;
+  display: block;
 }
 
 .brand-word {
@@ -98,12 +99,11 @@ img {
   font-weight: 500;
   font-size: 23px;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 
 .brand {
-  width: max-content;
   max-width: 165px;
 }
 
@@ -1774,6 +1774,10 @@ img {
 }
 
 .footer-brand {
+  color: #f4f3ee;
+}
+
+.footer-brand .brand-word {
   color: #f4f3ee;
 }
 

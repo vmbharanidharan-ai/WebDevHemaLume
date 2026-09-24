@@ -453,7 +453,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-copy">
           <div className="footer-brand">
-            <HemaLumeMark size={26} />
+            <HemaLumeMark size={26} variant="light" />
             <span className="brand-word">HemaLume</span>
           </div>
           <p>Point-of-care hematology triage.</p>
