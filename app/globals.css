@@ -77,7 +77,8 @@ img {
 }
 
 .brand,
-.footer-brand {
+.footer-brand,
+.hemalume-logo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -87,24 +88,40 @@ img {
 }
 
 .brand .hemalume-mark,
-.footer-brand .hemalume-mark {
+.footer-brand .hemalume-mark,
+.hemalume-logo .hemalume-mark {
   flex-shrink: 0;
   width: 28px;
   height: 28px;
   display: block;
 }
 
+.hemalume-wordmark,
 .brand-word {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 23px;
+  font-size: 22.5px;
   line-height: 1;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 
-.brand {
+.brand,
+.hemalume-logo.brand {
   max-width: 165px;
+}
+
+.hemalume-logo:hover {
+  opacity: 0.88;
+}
+
+.hemalume-logo:hover .hemalume-mark {
+  transform: scale(1.02);
+  transform-origin: center;
+}
+
+.hemalume-mark {
+  transition: transform 0.25s var(--ease-out);
 }
 
 .desktop-nav {
@@ -1777,6 +1794,7 @@ img {
   color: #f4f3ee;
 }
 
+.footer-brand .hemalume-wordmark,
 .footer-brand .brand-word {
   color: #f4f3ee;
 }
@@ -1887,8 +1905,12 @@ img {
     grid-template-columns: 1fr auto;
   }
 
-  .brand .hemalume-mark { width: 24px; height: 24px; }
-  .brand-word { font-size: 20px; }
+  .brand .hemalume-mark,
+  .hemalume-logo .hemalume-mark { width: 25px; height: 25px; }
+  .hemalume-wordmark,
+  .brand-word { font-size: 19.5px; }
+  .brand,
+  .hemalume-logo.brand { max-width: 140px; }
   .brand { max-width: 135px; }
 
   .desktop-nav { display: none; }

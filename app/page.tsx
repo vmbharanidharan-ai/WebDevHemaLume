@@ -3,6 +3,7 @@ import Reveal from "../components/Reveal";
 import MicroscopyField from "../components/MicroscopyField";
 import HeroMicroscopy from "../components/HeroMicroscopy";
 import DeviceMockup from "../components/DeviceMockup";
+import HemaLumeLogo from "../components/HemaLumeLogo";
 import HemaLumeMark from "../components/HemaLumeMark";
 
 const steps = [
@@ -61,10 +62,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="HemaLume home">
-          <HemaLumeMark size={28} />
-          <span className="brand-word">HemaLume</span>
-        </a>
+        <HemaLumeLogo className="brand" markSize={28} />
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#problem">Problem</a>
           <a href="#technology">Technology</a>
@@ -453,8 +451,8 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-copy">
           <div className="footer-brand">
-            <HemaLumeMark size={26} variant="light" />
-            <span className="brand-word">HemaLume</span>
+            <HemaLumeMark size={26} />
+            <span className="hemalume-wordmark">HemaLume</span>
           </div>
           <p>Point-of-care hematology triage.</p>
           <h2>
