@@ -77,51 +77,56 @@ img {
 }
 
 .brand,
-.footer-brand,
-.hemalume-logo {
+.footer-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   justify-self: start;
   color: var(--ink);
   width: max-content;
-}
-
-.brand .hemalume-mark,
-.footer-brand .hemalume-mark,
-.hemalume-logo .hemalume-mark {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
-.hemalume-wordmark,
-.brand-word {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 22.5px;
+  font-size: 22px;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--ink);
 }
 
-.brand,
-.hemalume-logo.brand {
-  max-width: 165px;
+.brand-mark {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.hemalume-logo:hover {
-  opacity: 0.88;
+.brand-mark span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
 }
 
-.hemalume-logo:hover .hemalume-mark {
-  transform: scale(1.02);
-  transform-origin: center;
+.brand-mark span:nth-child(1) {
+  top: 1px;
+  left: 8px;
 }
 
-.hemalume-mark {
-  transition: transform 0.25s var(--ease-out);
+.brand-mark span:nth-child(2) {
+  right: 1px;
+  top: 8px;
+}
+
+.brand-mark span:nth-child(3) {
+  bottom: 1px;
+  left: 8px;
+}
+
+.brand-mark span:nth-child(4) {
+  left: 1px;
+  top: 8px;
 }
 
 .desktop-nav {
@@ -467,8 +472,6 @@ img {
 .hero-microscopy,
 .hero-note,
 .hero-sub { display: none !important; }
-
-.brand-mark { display: none; }
 
 /* Microscopy */
 .micro-field {
@@ -1794,11 +1797,6 @@ img {
   color: #f4f3ee;
 }
 
-.footer-brand .hemalume-wordmark,
-.footer-brand .brand-word {
-  color: #f4f3ee;
-}
-
 .footer-brand .brand-mark {
   border-color: #e0a4b2;
 }
@@ -1905,13 +1903,24 @@ img {
     grid-template-columns: 1fr auto;
   }
 
-  .brand .hemalume-mark,
-  .hemalume-logo .hemalume-mark { width: 25px; height: 25px; }
-  .hemalume-wordmark,
-  .brand-word { font-size: 19.5px; }
-  .brand,
-  .hemalume-logo.brand { max-width: 140px; }
-  .brand { max-width: 135px; }
+  .brand {
+    font-size: 20px;
+  }
+
+  .brand-mark {
+    width: 22px;
+    height: 22px;
+  }
+
+  .brand-mark span {
+    width: 4.5px;
+    height: 4.5px;
+  }
+
+  .brand-mark span:nth-child(1) { top: 1px; left: 7px; }
+  .brand-mark span:nth-child(2) { right: 1px; top: 7px; }
+  .brand-mark span:nth-child(3) { bottom: 1px; left: 7px; }
+  .brand-mark span:nth-child(4) { left: 1px; top: 7px; }
 
   .desktop-nav { display: none; }
   .header-button { display: none; }
